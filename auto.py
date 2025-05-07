@@ -6,8 +6,13 @@ from threading import Thread
 
 app = Flask(__name__)
 
-ports = list(range(1001, 1010)) + list(range(8080))  + list(range(4001, 4010)) + list(range(10001, 10010)) + list(range(5101, 5110))
-
+ports = (
+    list(range(1001, 1010)) +
+    [8080] + [3128] +
+    list(range(4001, 4010)) +
+    list(range(10001, 10010)) +
+    list(range(5101, 5110))
+)
 @app.route('/api')
 def get_proxies():
     try:
